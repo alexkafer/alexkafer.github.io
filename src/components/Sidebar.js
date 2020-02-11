@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
+import { Link } from "gatsby"
 import Scroll from './Scroll';
 
-import avatar from '../assets/images/avatar.png';
+import avatar from '../assets/images/profilepicture.jpg';
 import config from '../../config';
 
 export class Sidebar extends Component {
@@ -13,9 +14,6 @@ export class Sidebar extends Component {
         { content: 'About', href: 'about' },
         { content: 'Experience', href: 'experience' },
         { content: 'Education', href: 'education' },
-        { content: 'Skills', href: 'skills' },
-        { content: 'Interests', href: 'interests' },
-        { content: 'Awards', href: 'awards' },
       ],
     };
   }
@@ -29,7 +27,7 @@ export class Sidebar extends Component {
       >
         <a className="navbar-brand" href="#page-top">
           <span className="d-block d-lg-none">
-            {config.firstName} {config.lastName}
+            Alex Kafer  
           </span>
           <span className="d-none d-lg-block">
             <img
@@ -62,14 +60,18 @@ export class Sidebar extends Component {
               return (
                 <li className="nav-item" key={href}>
                   <Scroll type="id" element={href}>
-                    <a className="nav-link" href={`#${href}`}>
+                    <a className="nav-link" href={`/index#${href}`}>
                       {content}
                     </a>
                   </Scroll>
                 </li>
               );
             })}
+            <li className="nav-item">
+            <Link  className="nav-link" to="/coursework">Coursework</Link>
+          </li>
           </Scrollspy>
+          
         </div>
       </nav>
     );
