@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy';
 import { Link } from "gatsby"
-import Scroll from './Scroll';
 
 import avatar from '../assets/images/profilepicture.jpg';
 import config from '../../config';
@@ -11,9 +10,10 @@ export class Sidebar extends Component {
     super(props);
     this.state = {
       tabs: [
-        { content: 'About', href: 'about' },
-        { content: 'Experience', href: 'experience' },
-        { content: 'Education', href: 'education' },
+        { content: 'About', href: '/#about' },
+        { content: 'Experience', href: '/#experience' },
+        { content: 'Education', href: '/#education' },
+        { content: 'Coursework', href: '/coursework' },
       ],
     };
   }
@@ -59,17 +59,10 @@ export class Sidebar extends Component {
               const { href, content } = tab;
               return (
                 <li className="nav-item" key={href}>
-                  <Scroll type="id" element={href}>
-                    <a className="nav-link" href={`/index#${href}`}>
-                      {content}
-                    </a>
-                  </Scroll>
+                  <Link  className="nav-link" to={href}>{content}</Link>
                 </li>
               );
             })}
-            <li className="nav-item">
-            <Link  className="nav-link" to="/coursework">Coursework</Link>
-          </li>
           </Scrollspy>
           
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Layout from '../components/Layout';
-
+import { Link } from "gatsby"
 import { graphql } from 'gatsby';
 import Sidebar from '../components/Sidebar';
 
@@ -76,7 +76,7 @@ const CourseWorkPage = ({ data }) => (
                       return (
                         <li key={project.id}>
                           <i className="fa-li fab fa-youtube"></i>
-                          <a href={project.youtubeID}>{project.projectTitle}</a>
+                          <Link to={"/course/" + course.node.id + "/" + project.id} >{project.projectTitle}</Link>
                         </li>)
                     })
                   }
