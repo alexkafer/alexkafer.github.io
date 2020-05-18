@@ -1,9 +1,7 @@
-name: Gatsby Publish
+name: Build & Deploy to Github Pages
 
-on:
-  push:
-    branches:
-      - master
+# See https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
+on: [repository_dispatch]
 
 jobs:
   build:
