@@ -33,19 +33,19 @@ export const query = graphql`
 
 function DisplayProjects(props) {
   if (props.projects) {
-    return <ul className="fa-ul mb-0">
+    return (<ul className="fa-ul mb-0">
       {
         props.projects.map((project, index) => {
           return (
             <li key={project.id}>
               <i className="fa-li fab fa-youtube"></i>
-              <Link to={"/course/" + course.node.id + "/#" + project.id} >{project.projectTitle}</Link>
+              <Link to={"/course/" + props.courseId + "/#" + project.id} >{project.projectTitle}</Link>
             </li>)
         })
       }
-    </ul>
+    </ul>)
   } else {
-    return;
+    return null;
   }
 }
 
@@ -87,7 +87,7 @@ const CourseWorkPage = ({ data }) => (
                   <h3 className="mb-0">{}</h3>
                   <div className="subheading mb-3">{course.node.classTitle}</div>
                   { documentToReactComponents(course.node.classDescription?.json)}
-                  <DisplayProjects projects={course.node.projects} />
+                  <DisplayProjects projects={course.node.projects} courseId={course.node.id}/>
                 </div>
                 
                 <div className="resume-date text-md-right">
