@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # gatsby-starter-resume
 
 Gatsby.js V2 starter template based on Resume by startbootstrap
@@ -72,3 +73,7 @@ Please create issue or open PR request for contribution.
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](LICENSE)
 
 refer `LICENSE` file in this repository.
+=======
+# alexkafer.github.io
+Personal Website
+>>>>>>> c3a4b40ee2daeb14f396b0d2e2f84aa36940e5a3

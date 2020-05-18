@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../../components/Layout';
+import { Link } from "gatsby"
     
 import Sidebar from '../../components/Sidebar';
 import YouTube from 'react-youtube';
@@ -33,7 +34,7 @@ const options = {
   renderNode: {
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       const { title, file } = node.data.target.fields;
-      if (file["en-US"].contentType === "image/png") {
+      if (file["en-US"].contentType === "image/png" || file["en-US"].contentType === "image/gif" ) {
         return <img alt={title} src={file["en-US"].url} />
       } else {
         return <video src={file["en-US"].url} controls>
@@ -47,7 +48,10 @@ const options = {
   }
 };
 
-const Course = ({ data }) => (
+const Course = ({ data }) => {
+  console.log(data);
+  return (
+  
   <Layout>
     <Sidebar />
     <div className="container-fluid p-0">
@@ -62,14 +66,14 @@ const Course = ({ data }) => (
           <div className="subheading mb-5">
             {data.contentfulCourses.classDate}
           </div>
-          <p className="lead mb-5">
+          <div className="lead mb-5">
             {documentToReactComponents(data.contentfulCourses.classDescription.json)}
-          </p>
-          <p className="lead mb-5">
+          </div>
+          <div className="lead mb-5">
             {data.contentfulCourses.projects.map((project, index) => {
-              return (<a href={"#" + project.id}>{project.projectTitle}</a>)
+              return (<p><Link to={"/course/" + data.contentfulCourses.id + "#" + project.id}>{project.projectTitle}</Link></p>)
             })}
-          </p>
+          </div>
         </div>
       </section>
 
@@ -85,7 +89,7 @@ const Course = ({ data }) => (
           {data.contentfulCourses.projects.map((project, index) => {
             console.log(project.projectDescription.json);
             return (
-              <div key={project.id} className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+              <div id={project.id} key={project.id} className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
 
                 <div key={project.id} className="resume-content">
                   <h3 className="mb-1">{project.projectTitle}</h3>
@@ -102,6 +106,6 @@ const Course = ({ data }) => (
       </section>
     </div>
   </Layout>
-);
+)};
 
 export default Course;

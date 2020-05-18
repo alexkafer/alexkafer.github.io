@@ -68,21 +68,21 @@ I am attending the University of Minnesota, pursuing a Bachelor of Science in Co
             <div className="resume-content">
               <h3 className="mb-0">NASA - Johnson Space Center</h3>
               <div className="subheading mb-3">Artificial Intelligence and Machine Learning Intern</div>
-              <p>
+              <div>
                 Completed two semester long assignments in Houston, TX. First was a project titled "Artificial Intelligence and Machine Learning Applications in Requirement Tailoring", a brand new smart AI tool that needs to be designed from the ground up within the Space Exploration branch of Safety and Mission Assurance.
                 <ul>
                   <li>Architected and developed a tool to tailor applicable statements from a pool of over 10,000 requirements</li>
                   <li>Modeled and trained a Natural Language Processor using Python to classify requirement documents</li>
                   <li>Designed a front-end interface in Angular 6, working within existing internal enterprise security procedures</li>
                 </ul>
-              </p>
-                <p>
+              </div>
+                <div>
                 Second, I worked in the 1958 co-working space working on various projects to encourage creativity and innovation within NASA. Through self-directed projects, I was able:
                 <ul>
                     <li>Designed, programmed, and internally published an iPad kiosk application (swift) used for effortless visitor check-in, provide live wait times, and to simplify officer operations at the center’s badging office</li>
                 <li>Architected and prototyped a robotic assistant using a Double Telepresence robot, iPad, and ROS</li>
                 <li>Integrated numerous existing applications following an agency wide Office 365 migration</li>
-                </ul></p>
+                </ul></div>
             </div>
             <div className="resume-date text-md-right">
               <span className="text-primary">Sep 2018 – May 2019</span>

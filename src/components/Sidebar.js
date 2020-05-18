@@ -3,7 +3,6 @@ import Scrollspy from 'react-scrollspy';
 import { Link } from "gatsby"
 
 import avatar from '../assets/images/profilepicture.jpg';
-import config from '../../config';
 
 export class Sidebar extends Component {
   constructor(props) {
@@ -59,7 +58,7 @@ export class Sidebar extends Component {
               const { href, content } = tab;
               return (
                 <li className="nav-item" key={href}>
-                  <Link  className="nav-link" to={href}>{content}</Link>
+                  <Link className="nav-link" to={href}>{content}</Link>
                 </li>
               );
             })}

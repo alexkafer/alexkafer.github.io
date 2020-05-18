@@ -76,7 +76,7 @@ const CourseWorkPage = ({ data }) => (
                       return (
                         <li key={project.id}>
                           <i className="fa-li fab fa-youtube"></i>
-                          <Link to={"/course/" + course.node.id + "/" + project.id} >{project.projectTitle}</Link>
+                          <Link to={"/course/" + course.node.id + "/#" + project.id} >{project.projectTitle}</Link>
                         </li>)
                     })
                   }
