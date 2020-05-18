@@ -11,6 +11,8 @@ module.exports = {
   pathPrefix: config.pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
+    author: "Alex Kafer",
+    description: config.siteDescription
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -35,14 +37,6 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
         host: process.env.CONTENTFUL_HOST,
         forceFullSync: activeEnv === "development"
-      },
-    },
-    {
-      resolve: `gatsby-plugin-s3`,
-      options: {
-        bucketName: "alexkafer.com",
-        protocol: "https",
-        hostname: "www.alexkafer.com",
       },
     },
     {
