@@ -31,6 +31,24 @@ export const query = graphql`
   }
   }`;
 
+function DisplayProjects(props) {
+  if (props.projects) {
+    return <ul className="fa-ul mb-0">
+      {
+        props.projects.map((project, index) => {
+          return (
+            <li key={project.id}>
+              <i className="fa-li fab fa-youtube"></i>
+              <Link to={"/course/" + course.node.id + "/#" + project.id} >{project.projectTitle}</Link>
+            </li>)
+        })
+      }
+    </ul>
+  } else {
+    return;
+  }
+}
+
 const CourseWorkPage = ({ data }) => (
   <Layout>
     <Sidebar />
@@ -62,25 +80,14 @@ const CourseWorkPage = ({ data }) => (
           <h2 className="mb-5">Courses</h2>
 
           {data?.allContentfulCourses?.edges.map((course, index) => {
-            console.log(course);
-
+    
             return (
               <div key={course.id} className="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
                 <div key={course.id} className="resume-content">
                   <h3 className="mb-0">{}</h3>
                   <div className="subheading mb-3">{course.node.classTitle}</div>
                   { documentToReactComponents(course.node.classDescription?.json)}
-                  <ul className="fa-ul mb-0">
-                    {
-                    course.node.projects.map((project, index) => {
-                      return (
-                        <li key={project.id}>
-                          <i className="fa-li fab fa-youtube"></i>
-                          <Link to={"/course/" + course.node.id + "/#" + project.id} >{project.projectTitle}</Link>
-                        </li>)
-                    })
-                  }
-                </ul>
+                  <DisplayProjects projects={course.node.projects} />
                 </div>
                 
                 <div className="resume-date text-md-right">
